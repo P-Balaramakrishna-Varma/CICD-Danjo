@@ -1,0 +1,4 @@
+services:
+  web:
+    image: django_image
+    command: ["python3", "manage.py", "test"]
