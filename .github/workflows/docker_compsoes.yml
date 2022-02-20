@@ -19,4 +19,4 @@ jobs:
     
     - name: Collecting results
       run: |
-        docker-compose logs web
+        docker-compose logs -f web
