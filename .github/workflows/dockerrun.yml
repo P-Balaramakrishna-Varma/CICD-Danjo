@@ -1,0 +1,18 @@
+name: Docker Image CI
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Build the Docker image
+      run: |
+        cd django_project_c
+        docker build . --file Dockerfile --tag django_image
+        cd ..
+        
+    - name: Runs tests
+      run: |
+        docker run django_image python3 manage.py test
